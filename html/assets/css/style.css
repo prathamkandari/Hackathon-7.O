@@ -1370,7 +1370,7 @@ blockquote h6 {
     overflow: hidden;
 }
 
-.card:hover{
+.card:hover {
     background-image: url();
 }
 
@@ -1668,7 +1668,6 @@ body.has-loading-screen.loading-done:after {
 -------------------------------------------*/
 
 .navbar {
-    height: 20px;
     width: 100%;
     display: inline;
     font-size: .875rem;
@@ -2785,10 +2784,16 @@ E. Template Specific Elements
 
 .stretched {
     width: 100%;
-    height: auto;
+    height: 55px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .stretched {
+        height: auto;
+    }
 }
 
 .stretched a {
@@ -2900,21 +2905,41 @@ a.nav-link:hover:after {
     border-radius: 5px;
     /* background: rgba(25, 25, 25, .1); */
     /* background: linear-gradient(90deg,#1b0e5a -5.91%,#176586 111.58%); */
-    background: linear-gradient(135deg, rgba(27, 14, 90), rgba(23, 101, 134));
+    background: rgba(11, 74, 149, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     /* padding-left: 15px;
     padding-right: 15px; */
     /* margin-top: 0px; */
     /* padding-bottom: 13px; */
 }
 
+
+.container-fluid::after {
+    position: absolute;
+    bottom: 5px;
+    content: "";
+    border-radius: 5px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1)) 2%;
+}
+
 .container-fluid2 {
     background-size: 100%;
     margin-right: 0%;
     border-radius: 5px;
-    background: linear-gradient(135deg, rgba(27, 14, 90,0.70),rgba(23, 101, 134,0.70));
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 13px;
+    background: rgba(11, 74, 149, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 
@@ -2961,8 +2986,9 @@ a.nav-link:hover:after {
 
 @media screen and (max-width: 1000px) {
     .auto-type2 {
+        margin-left: 10%;
         text-align: center;
-        display: block;
+        display: inline-block;
     }
 
     .fa {
@@ -2990,6 +3016,7 @@ a.nav-link:hover:after {
 /* You Tube Video */
 
 .iframe {
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
     border: 5px solid #fff;
     border-radius: 5px;
     transform: scale(80%, 80%);
@@ -3219,7 +3246,6 @@ a.nav-link:hover:after {
     max-height: 100vh;
 }
 
-
 /* Contact Section */
 
 .list {
@@ -3299,17 +3325,46 @@ a.nav-link:hover:after {
 }
 
 .row .col-md-12 img {
-    -webkit-animation: mover 1s infinite alternate;
-    animation: mover 1s infinite alternate;
+    /* -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate; */
+    -webkit-animation: spin 5s infinite;
+    animation: spin 3s infinite;
     height: 250px;
-    width: 1000px;    
+    width: 250px;
+    /* transform-style: preserve-3d; */
+    backface-visibility: hidden;
+    transition: all 0.1s ease-in-out;
 }
 
 /* ENDS */
 
 /* MOVER  */
 
-@-webkit-keyframes mover {
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(-360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -moz-transform: rotateY(-360deg);
+        -ms-transform: rotateY(-360deg);
+        transform: rotateY(-360deg);
+    }
+}
+
+/* @-webkit-keyframes mover {
     0% {
         transform: translateY(0);
     }
@@ -3327,25 +3382,32 @@ a.nav-link:hover:after {
     100% {
         transform: translateY(-30px);
     }
-}
+} */
 
 /* MOVER ENDS */
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width:1230px) {
 
-    .row .col-md-12 p{
+    .row .col-md-12 p {
         margin-left: 0;
         text-align: center;
     }
 
     .row .col-md-12 img {
-        padding-top: 5%;
-        width: 100%;
-        animation: mover 1s infinite alternate;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        height: auto;
+        /* animation: mover 1s infinite alternate; */
+    }
+
+    .GFG {
+        width: 100px;
     }
 }
 
-.GFG{
+.GFG {
     width: 20%;
     margin: 0 auto;
     /* align-items: center; */
